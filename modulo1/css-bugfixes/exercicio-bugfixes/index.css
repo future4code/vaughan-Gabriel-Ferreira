@@ -151,3 +151,7 @@ div table button:hover{
 div table button:active{
     color: white;
 }
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
