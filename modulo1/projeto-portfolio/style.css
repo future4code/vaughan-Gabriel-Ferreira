@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    all: unset;
+}
+
+a:hover{
+    color: rgb(233, 94, 52);
+}
+
+body{
+    background-color: rgb(75, 2, 2);
+    color: white;
+    font-family: 'Bitter', serif;
+}
+
+div header{
+    margin: 18px;
+    text-align: center;
+    background-color: rgb(46, 1, 1);
+    padding: 15px;
+    border-radius: 20px;
+}
+
+
+
+.margin-top-e-bottom{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+img{
+    display: block;
+    margin: auto;
+    width: 200px;
+    margin-top: 50px;
+}
+
+.display-inline{
+    margin: 400px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.class-da-div2{
+    margin: auto;
+}
+
+h3{
+    margin: 25px;
+}
+
+li{
+    margin: 25px;
+}
+
+.formatacao-texto{
+    margin: 50px;
+    text-align: justify;
+}
+
+.class-da-div3{
+    margin: 25px;
+}
+
+.link-medium{
+    color: orange;
+}
+
+.explicacoes-lista{
+    margin: 25px;
+}
+
+.img1{
+    width: 450px;
+}
+
