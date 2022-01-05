@@ -15,6 +15,7 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
+
   const compararNumeros = (a , b) => {
     return a - b
   }
@@ -30,7 +31,6 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-    
 }
 
 // EXERCÍCIO 06
