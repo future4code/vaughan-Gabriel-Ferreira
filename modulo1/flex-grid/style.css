@@ -1,0 +1,102 @@
+/* --------------------------------------------------- CONFIGURAÇÕES GERAIS --------------------------------------------------- */
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 8vh 1fr 8vh;
+}
+/* --------------------------------------------------- HEADER --------------------------------------------------- */
+
+header{
+    display: flex;
+    background-color: mediumvioletred;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-logo img{
+
+    height: 32px;
+    padding: 15px 30px;
+}
+
+header button{
+    margin: 15px 30px;
+    padding: 5px;
+}
+
+/* --------------------------------------------------- MAIN --------------------------------------------------- */
+
+main{
+    display: grid;
+    grid-template-columns: 20% 1fr;
+}
+
+nav{
+    display: grid;
+    grid-template-rows: 7vh 7vh 7vh 7vh 1fr;
+    background-color: #f2d0e0;
+    
+}
+
+main nav img{
+    height: 32px;
+}
+
+.itens-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.bolos{
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.bolos img{
+    width: 15vw;
+}
+
+.card-bolo{
+    width: 15vw;
+    text-align: center;
+    box-shadow: 5px 5px 5px darkgray;
+}
+
+.card-bolo h6{
+    font-size: 20px;
+    
+}
+
+
+
+footer{
+    background-color: mediumvioletred;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 20px;
+}
