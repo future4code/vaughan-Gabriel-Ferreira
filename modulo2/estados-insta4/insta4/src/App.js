@@ -18,7 +18,7 @@ const NewPostContainer = styled.div`
   background-color: lightseagreen;
   margin: 0 35%;
   margin-bottom: 20px;
-  padding: 30px 0  
+  padding: 30px 0;  
 `
 
 class App extends React.Component {
