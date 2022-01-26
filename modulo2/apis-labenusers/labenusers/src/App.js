@@ -1,78 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios';
-import React from 'react';
-import styled from 'styled-components'
+import React from "react";
+import axios from "axios";
+import styled from "styled-components";
+import TelaCadastro from './components/TelaCadastro.js'
+import TelaListaUsuarios from './components/TelaListaUsuarios.js'
 
-// const getPlaylist=()=>{
-//   axios.get(url, header).then().catch()
-// }
-
-// const postPlaylist=()=>{
-//   axios.post(url, body, header).then().catch()
-// }
+const Root = styled.div `
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  height: 97vh;
+  width: 97vw;
+`
 
 export default class App extends React.Component {
+
   state = {
-    users: [],
-    inputValue: "",
-    emailValue:""
+    telaAtual: "cadastro"
   }
 
-  handleInput = (event) => {
-    this.setState({inputValue: event.target.value})
+  escolheTela = () => {
+    switch (this.state.telaAtual){
+      case "cadastro":
+        return <TelaCadastro irParaLista = {this.irParaLista}/>
+      case "lista":
+        return <TelaListaUsuarios irParaCadastro = {this.irParaCadastro}/>
+      default:
+        return <div>Erro! Página não encontrada D:</div>
+    }
   }
 
-  handleEmail = (event) => {
-    this.setState({emailValue: event.target.value})
+  irParaCadastro = () => {
+    this.setState({telaAtual: "cadastro"})
   }
 
-
-  createUser = () => {
-    const createUserUrl = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
-    const body = {name: this.state.inputValue, email: this.state.emailValue}
-    const header = {headers:{Authorization: "gabriel-ferreira-vaughan"}}
-    axios
-    .post(createUserUrl, body, header)
-    .then((response)=>{
-      alert("Usuário criado com sucesso")
-    })
-    .catch((error)=>{
-      console.log(error.response)
-      alert("Erro")
-    })
+  irParaLista = () => {
+    this.setState({telaAtual: "lista"})
   }
 
   render(){
-
-    const userList = this.state.users.map((user) => {})
-
-  return (
-    <>
-      
-      <div>
-        <button>Trocar de Tela</button>
-      </div>
-
-      <div>
-        <input
-          type={'text'}
-          placeholder='Nome'
-          onChange={this.handleInput}
-          value={this.state.inputValue}
-        />
-
-        <input
-          type={'text'}
-          placeholder='E-mail'
-          onChange={this.handleEmail}
-          value={this.state.emailValue}
-        />
-      </div>
-
-      <button onClick={this.createUser}>Criar Usuário</button>
-    
-    </>
-  );
- }
+    return (
+      <Root>
+        {this.escolheTela()}    
+      </Root>
+    );
+  }
 }
