@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./styles.css";
 import axios from "axios";
 import PokeCard from "./components/PokeCard/PokeCard";
 
@@ -11,7 +10,7 @@ export default function App() {
     axios
       .get("https://pokeapi.co/api/v2/pokemon/?limit=151")
       .then((response) => {
-        this.setState({ pokeList: response.data.results });
+        setPokelist(response.data.results);
       })
       .catch((err) => {
         console.log(err);
@@ -24,7 +23,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <select onChange={changePokeName} value={pokemon.name}>
+      <select onChange={changePokeName}>
         <option value={""}>Nenhum</option>
         {pokeList.map(pokemon => {
           return (
