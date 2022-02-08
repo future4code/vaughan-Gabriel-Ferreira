@@ -16,7 +16,6 @@ export default function PokeCard(props) {
 
     useEffect(() => {
       pegaPokemon(props.pokemon)
-      console.log(props.pokemon)
     }, [])
     
     useEffect(() => {
@@ -28,7 +27,7 @@ export default function PokeCard(props) {
   return (    
     <div>
       <p>{pokemon.name}</p>
-      <p>{pokemon.weight}</p>
+      <p>{pokemon.weight} Kg</p>
       {pokemon.types && <p>{pokemon.types[0].type.name}</p>}
       {pokemon.sprites && (
         <img src={pokemon.sprites.front_default} alt={pokemon.name}/>
