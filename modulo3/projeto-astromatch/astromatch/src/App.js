@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Home from "./screens/Home";
-import Matchs from "./screens/Matchs";
+import Matchs from "./screens/Matches";
 
 export default function App() {
   const [tela, setTela] = useState("home");
@@ -32,8 +32,9 @@ export default function App() {
           setTela("matchs");
         }}
       >
-        MATCHS
+        MATCHES
       </button>
+      <button>CLEAR MATCHES</button>
       {renderizaTela()}
     </div>
   );
