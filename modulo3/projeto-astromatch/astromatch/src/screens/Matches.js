@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-export default function Matchs() {
+export default function Matchs(props) {
   const [matchesList, setMatchesList] = useState([]);
 
   useEffect(() => {
     getMatches();
-  }, []);
+  }, [matchesList]);
 
   const getMatches = () => {
     axios

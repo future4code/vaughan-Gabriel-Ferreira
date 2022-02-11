@@ -2,19 +2,24 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Home from "./screens/Home";
 import Matchs from "./screens/Matches";
+import styled from "styled-components";
+
+const Buttons = styled.div`
+  margin-bottom: 5%;
+`;
 
 export default function App() {
-  const [tela, setTela] = useState("home");
+  const [screen, setScreen] = useState("home");
 
   useEffect(() => {
-    renderizaTela;
-  }, [tela]);
+    renderScreen;
+  }, [screen]);
 
-  const renderizaTela = () => {
-    if (tela === "home") {
+  const renderScreen = () => {
+    if (screen === "home") {
       return <Home />;
     } else {
-      return <Matchs />;
+      return <Matchs props={clear} />;
     }
   };
 
@@ -33,28 +38,30 @@ export default function App() {
 
   return (
     <div>
-      <button
-        onClick={() => {
-          setTela("home");
-        }}
-      >
-        HOME
-      </button>
-      <button
-        onClick={() => {
-          setTela("matchs");
-        }}
-      >
-        MATCHES
-      </button>
-      <button
-        onClick={() => {
-          clear();
-        }}
-      >
-        CLEAR MATCHES
-      </button>
-      {renderizaTela()}
+      <Buttons>
+        <button
+          onClick={() => {
+            setScreen("home");
+          }}
+        >
+          HOME
+        </button>
+        <button
+          onClick={() => {
+            setScreen("matchs");
+          }}
+        >
+          MATCHES
+        </button>
+        <button
+          onClick={() => {
+            clear();
+          }}
+        >
+          CLEAR MATCHES
+        </button>
+      </Buttons>
+      {renderScreen()}
     </div>
   );
 }

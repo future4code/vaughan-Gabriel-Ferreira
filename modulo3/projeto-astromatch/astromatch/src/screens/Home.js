@@ -2,16 +2,36 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
+const HomeRoot = styled.div`
+  width: 90%;
+  height: 90%;
+`;
+
+const Name = styled.div`
+  font-size: 200%;
+  margin: 5%;
+`;
+
+const Bio = styled.div`
+  font-size: 150%;
+  margin: 5%;
+  text-align: center;
+`;
+
 const CardContainer = styled.div`
   border: 1px solid black;
+  border-radius: 5%;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40%;
+  width: 30vw;
   img {
+    float: left;
     width: 50%;
+    height: 400px;
+    object-fit: cover;
   }
   p {
     width: 80%;
@@ -24,6 +44,23 @@ const Buttons = styled.div`
   width: 100%;
   justify-content: space-around;
   margin-bottom: 8%;
+  button {
+    border-radius: 50%;
+    font-size: 200%;
+    padding: 3%;
+    background-color: white;
+    margin: 3%;
+  }
+  #like {
+    color: green;
+    border-color: green;
+    border-width: 3px;
+  }
+  #dislike {
+    color: red;
+    border-color: red;
+    border-width: 3px;
+  }
 `;
 
 export default function Home() {
@@ -61,28 +98,32 @@ export default function Home() {
   };
 
   return (
-    <CardContainer>
-      <p>
-        {profile.name}, {profile.age} anos
-      </p>
-      <img src={profile.photo} />
-      <p>{profile.bio}</p>
-      <Buttons>
-        <button
-          onClick={() => {
-            choosePerson();
-          }}
-        >
-          Like
-        </button>
-        <button
-          onClick={() => {
-            getProfileToChoose();
-          }}
-        >
-          X
-        </button>
-      </Buttons>
-    </CardContainer>
+    <HomeRoot>
+      <CardContainer>
+        <Name>
+          {profile.name}, {profile.age} anos
+        </Name>
+        <img src={profile.photo} />
+        <Bio>{profile.bio}</Bio>
+        <Buttons>
+          <button
+            id="dislike"
+            onClick={() => {
+              getProfileToChoose();
+            }}
+          >
+            X
+          </button>
+          <button
+            id="like"
+            onClick={() => {
+              choosePerson();
+            }}
+          >
+            ♥
+          </button>
+        </Buttons>
+      </CardContainer>
+    </HomeRoot>
   );
 }
