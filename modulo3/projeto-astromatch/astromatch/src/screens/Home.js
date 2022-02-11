@@ -26,12 +26,6 @@ const Buttons = styled.div`
   margin-bottom: 8%;
 `;
 
-const clear = () => {
-  axios.put(
-    "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/clear"
-  );
-};
-
 export default function Home() {
   const [profile, setProfile] = useState([]);
 
@@ -83,7 +77,7 @@ export default function Home() {
         </button>
         <button
           onClick={() => {
-            getProfileToChoose;
+            getProfileToChoose();
           }}
         >
           X

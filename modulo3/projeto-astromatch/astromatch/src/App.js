@@ -18,6 +18,19 @@ export default function App() {
     }
   };
 
+  const clear = () => {
+    axios
+      .put(
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/gabriel-valle/clear"
+      )
+      .then(() => {
+        console.log("perfis foram apagados");
+      })
+      .catch((err) => {
+        console.log(err.data);
+      });
+  };
+
   return (
     <div>
       <button
@@ -34,7 +47,13 @@ export default function App() {
       >
         MATCHES
       </button>
-      <button>CLEAR MATCHES</button>
+      <button
+        onClick={() => {
+          clear();
+        }}
+      >
+        CLEAR MATCHES
+      </button>
       {renderizaTela()}
     </div>
   );
