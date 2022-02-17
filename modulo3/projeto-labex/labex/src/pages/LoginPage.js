@@ -24,7 +24,8 @@ export default function LoginPage() {
     setPassword(event.target.value)
   }
 
-  const onSubmitLogin = () => {
+  const onSubmitLogin = (event) => {
+    event.preventDefault()
     const body = {
       email: email,
       password: password
@@ -32,7 +33,8 @@ export default function LoginPage() {
 
     axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/login', body)
     .then((response) => {
-      console.log('Deu bom ', response.data)
+      localStorage.setItem('token', response.data.token)
+      goToAdminHomePage()
     })
     .catch((err) => {
       alert(err.response.data.message)
@@ -43,20 +45,26 @@ export default function LoginPage() {
     <div>
       <h1>LOGIN PAGE</h1>
       <button onClick={goToHomePage}>Home</button>
-      <button onClick={goToAdminHomePage}>Login</button>
         <p>
-          <input 
-          placeholder="e-mail"
-          value={email}
-          onChange={onChangeEmail}
-          />
-          <input 
-          placeholder="senha"
-          value={password}
-          onChange={onChangePassword}
-          type="password"
-          />
-          <button onClick={onSubmitLogin}>Enviar</button>
+          <form onSubmit={onSubmitLogin}>
+            <input 
+              placeholder="e-mail"
+              value={email}
+              onChange={onChangeEmail}
+              type='email'
+              required
+            />
+            <input 
+              placeholder="senha"
+              value={password}
+              onChange={onChangePassword}
+              type="password"
+              pattern="^.{3,}$"
+              title="A senha precisa ter pelo menos 3 caracteres."
+              required
+            />
+            <button>Enviar</button>
+          </form>
         </p>
     </div>
   );
