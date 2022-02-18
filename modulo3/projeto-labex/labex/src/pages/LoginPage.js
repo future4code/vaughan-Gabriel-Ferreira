@@ -59,7 +59,7 @@ export default function LoginPage() {
               value={password}
               onChange={onChangePassword}
               type="password"
-              pattern="^.{3,}$"
+              pattern="^.{3,}"
               title="A senha precisa ter pelo menos 3 caracteres."
               required
             />
