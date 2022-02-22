@@ -23,6 +23,8 @@ const Form = styled.form`
   }
   button{
     padding: 0.2em;
+    margin: 1em;
+    width: 90px;
   }
 `;
 
@@ -32,17 +34,20 @@ const LoginPage = () => {
       <Title>LOGIN</Title>
       <Form>
         <input 
-        placeholder="e-mail" 
+        placeholder="E-mail" 
         type="email" 
         required />
 
         <input
-          placeholder="senha"
+          placeholder="Senha"
           type="password"
           pattern="^.{3,}"
           required
         />
-        <button>Enviar</button>
+        
+        <button>Entrar</button>
+        <button>Cadastrar-se</button>        
+
       </Form>
     </div>
   );
