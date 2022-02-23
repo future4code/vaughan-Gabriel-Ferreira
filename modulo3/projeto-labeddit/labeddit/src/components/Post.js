@@ -21,26 +21,18 @@ const PostBody = styled.div`
 const PostFooter = styled.div`
   border: 1px solid black;
   height: 30px;
+  display:flex;
+  justify-content: space-between;
 `;
-const NewPost = styled.div`
-  display: flex;
-  margin: 2%;
-  margin: auto;
-  
-  border: 1px solid black;
-  height: 200px;
-  width: 30vw;
 
-`;
 
 const Post = () => {
   return (
-    <div>
-      <NewPost/>
+    <div>      
       <PostContainer>
         <PostHeader>USER</PostHeader>
         <PostBody>POST-BODY</PostBody>
-        <PostFooter>POST-FOOTER</PostFooter>
+        <PostFooter>POST-FOOTER <p onClick={() => {console.log("clicou")}}> comentarios </p></PostFooter>
       </PostContainer>
     </div>
   );

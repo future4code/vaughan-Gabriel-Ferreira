@@ -14,10 +14,22 @@ const Title = styled.div`
   margin-bottom: 2%;
 `;
 
+const NewPost = styled.div`
+  display: flex;
+  margin: 2%;
+  margin: auto;
+  
+  border: 1px solid black;
+  height: 200px;
+  width: 30vw;
+
+`;
+
 const FeedPage = () => {
   return (
     <div>
       <Title>Feed</Title>
+      <NewPost/>
       <Post/>
     </div>
   );

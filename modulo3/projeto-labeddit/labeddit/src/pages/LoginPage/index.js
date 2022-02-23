@@ -1,54 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import {BrowserRouter, Route, Routes} from 'react-router-dom';
 // import RegisterPage from '../RegisterPage';
 // import FeedPage from '../FeedPage';
 // import PostPage from '../PostPage';
-import styled from "styled-components";
-
-const Title = styled.div`
-  display: flex;
-  justify-content: center;
-  font-size: 4em;
-  margin-top: 10%;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2em;
-  input{
-    margin: 1em;
-  }
-  button{
-    padding: 0.2em;
-    margin: 1em;
-    width: 90px;
-  }
-`;
+import { goToRegisterPage, goToFeedPage } from "../../routes/coordinator";
+import { Title, Form, ButtonDiv } from "./styled";
+import { BASE_URL } from "../../constants/urls";
+import axios from 'axios';
 
 const LoginPage = () => {
+  const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const onChangeEmail = (event) => {
+    setEmail(event.target.value)
+  }
+
+  const onChangePassword = (event) => {
+    setPassword(event.target.value)
+  }
+
+  const logIn = (event) => {
+    event.preventDefault()
+    const body = {
+      email: email,
+	    password: password
+    }
+
+    axios
+    .post(`${BASE_URL}/users/login`, body)
+    .then((response) => {
+      console.log('Funcionou!', response.data.token)
+      localStorage.setItem('token', response.data.token)
+      goToFeedPage(navigate)
+    })
+    .catch((err) => {
+      console.log('Não funcionou', err)
+    })
+  }  
+  
   return (
     <div>
       <Title>LOGIN</Title>
-      <Form>
+      <Form onSubmit={logIn}>
         <input 
         placeholder="E-mail" 
+        onChange={onChangeEmail}
+        value={email}
         type="email" 
-        required />
+        />
 
         <input
           placeholder="Senha"
           type="password"
+          onChange={onChangePassword}
+          value={password}
           pattern="^.{3,}"
-          required
         />
         
         <button>Entrar</button>
-        <button>Cadastrar-se</button>        
-
       </Form>
+      <ButtonDiv>
+        <button onClick={() => goToRegisterPage(navigate)}>Cadastrar-se</button>
+      </ButtonDiv>
     </div>
   );
 };
