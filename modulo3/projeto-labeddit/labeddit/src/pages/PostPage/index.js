@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Post from '../../components/Post';
 import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const Title = styled.div`
   display: flex;
@@ -10,11 +12,19 @@ const Title = styled.div`
   margin-bottom: 2%;
 `;
 
-const PostPage = () => {
+const PostPage = (props) => {
+  const params = useParams()
+  console.log(params)
+  const [post, setPost] = useState()
+
+  useEffect (() => {
+
+  }, [])
+
   return (
     <div>
       <Title>Post</Title>
-      <Post/>
+      {/* <Post/> */}
     </div>
   );
 }
