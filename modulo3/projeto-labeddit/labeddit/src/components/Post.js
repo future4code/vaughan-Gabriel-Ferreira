@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { useState } from "react";
 
 const PostContainer = styled.div`
   display: flex;
@@ -12,7 +13,6 @@ const PostContainer = styled.div`
   margin-top: 4%;
 `;
 const PostHeader = styled.div`
-  /* border: 1px solid black; */
   display:flex;
   align-items: center;
   height: 30px;
@@ -21,7 +21,6 @@ const PostHeader = styled.div`
   border-bottom: 2px solid black;
 `;
 const PostBody = styled.div`
-  /* border: 1px solid black; */
   height: 150px;
   padding: 4%;
 `;
@@ -29,7 +28,7 @@ const PostFooter = styled.div`
   border-top: 2px solid black;
   height: 30px;
   display:flex;
-  justify-content: space-between;
+  justify-content: space-around;
   div{
     display:inline;
     margin-left: 4px;
@@ -38,25 +37,21 @@ const PostFooter = styled.div`
 
 
 const Post = (props) => {
-  // const navigate = useNavigate()
-  
-  const goToPostPage = (navigate, id) => {
-    navigate(`/post/${id}`)
-  }
 
-  const params = useParams()
+  
+  
 
 
   return (
     <div>      
-      <PostContainer onClick={goToPostPage}>
+      <PostContainer>
         <PostHeader>{props.card.username}</PostHeader>
         <PostBody>{props.card.body}</PostBody>
         <PostFooter>
           <div>
             {props.card.voteSum}<div><button>↑</button> <button>↓</button></div>
           </div> 
-          <button onClick={() => {console.log(params)}}> comentarios </button>
+          <div> clique para ler os comentários </div>
           </PostFooter>
       </PostContainer>
     </div>
