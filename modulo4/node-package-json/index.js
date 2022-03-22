@@ -1,0 +1,1 @@
+console.log("Digite mova-se para uma das pastas e digite npm run ex1/ex2/ex3/ex4 com seus respectivos parâmetros para rodar as respostas dos exercícios :)")
