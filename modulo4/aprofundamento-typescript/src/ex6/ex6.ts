@@ -13,7 +13,7 @@ let arrayDeConsultas: NomeIdadeData[] = [
   { nome: "Márcia", idade: 45, dataDaConsulta: "04/05/2021" }
 ]
 
-console.log(`Antes: ${arrayDeConsultas}`)
+console.log(arrayDeConsultas)
 
 const organizaConsultas = (array: NomeIdadeData[]) => {
   
@@ -33,4 +33,4 @@ const organizaConsultas = (array: NomeIdadeData[]) => {
 
 organizaConsultas(arrayDeConsultas)
 
-console.log(`Depois: ${arrayDeConsultas}`)
+console.log(arrayDeConsultas)

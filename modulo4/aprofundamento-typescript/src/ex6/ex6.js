@@ -5,7 +5,7 @@ var arrayDeConsultas = [
     { nome: "Paula", idade: 26, dataDaConsulta: "03/11/2021" },
     { nome: "Márcia", idade: 45, dataDaConsulta: "04/05/2021" }
 ];
-console.log("Antes: ".concat(arrayDeConsultas));
+console.log(arrayDeConsultas);
 var organizaConsultas = function (array) {
     array.sort(function (a, b) {
         var fa = a.nome.toLowerCase(), fb = b.nome.toLowerCase();
@@ -19,4 +19,4 @@ var organizaConsultas = function (array) {
     });
 };
 organizaConsultas(arrayDeConsultas);
-console.log("Depois: ".concat(arrayDeConsultas));
+console.log(arrayDeConsultas);
