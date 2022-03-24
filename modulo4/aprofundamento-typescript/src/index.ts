@@ -1,0 +1,1 @@
+console.log('Tá tudo separado em pastas! :D')
