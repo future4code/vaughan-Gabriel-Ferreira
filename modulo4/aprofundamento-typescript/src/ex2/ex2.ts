@@ -26,7 +26,7 @@ let arr: number[] = [1, 2, 3, 4, 5]
 console.table(obterEstatisticas(arr))
 
 type AmostraDeDados = {
-    numeros: [21, 18, 65, 44, 15, 18],
+    numeros: number[],
     obterEstatisticas: (numeros: number[]) => {}
 }
 
