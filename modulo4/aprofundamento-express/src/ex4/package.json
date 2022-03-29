@@ -1,0 +1,12 @@
+{
+  "name": "ex4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ../../build/ex4/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
