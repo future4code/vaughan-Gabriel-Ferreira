@@ -1,0 +1,12 @@
+{
+  "name": "ex3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ../../build/ex3/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

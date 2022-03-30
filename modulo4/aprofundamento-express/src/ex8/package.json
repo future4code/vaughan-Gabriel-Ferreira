@@ -1,0 +1,12 @@
+{
+  "name": "ex1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ../../build/ex1/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
