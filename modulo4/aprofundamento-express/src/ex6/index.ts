@@ -17,20 +17,18 @@ app.post("/edit/:id/task-status", (req, res) => {
         return Number(taskId) === task.id
     })
     
-    let object = taskToEdit.flat(1)
+    let object = taskToEdit[0]
     object.completed === newStatus
 
     let otherTasks = tasksList.filter(task => {
         return Number(taskId) !== task.id
     })
 
-    otherTasks.push(taskToEdit)
+    otherTasks.push(object)
 
-
-
+    tasksList === otherTasks   
     
-    
-	res.send("PONG!")
+	res.send(tasksList)
 })
 
 app.listen(3003, () => {
