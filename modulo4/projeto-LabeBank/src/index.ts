@@ -7,6 +7,15 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+app.get('/user/balance', (req: Request, res: Response) => {
+    const filteredUsers = users.filter(user => {
+        return user.name == req.body.name && user.cpf == req.body.cpf
+    })    
+    const balance = filteredUsers[0].balance
+    res.send(`Seu saldo é ${balance}`)
+
+})
+
 app.post('/user/create', (req: Request, res: Response) => {
     const newUser: User = {
         name: req.body.name,
