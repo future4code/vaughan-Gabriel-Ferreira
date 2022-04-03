@@ -15,19 +15,26 @@ app.post('/user/create', (req: Request, res: Response) => {
         balance: 0,
         transactions: []
     }
-    users.push(newUser)
-	res.send(users)
-})
 
-app.get('/user', (req: Request, res: Response) => {
-    res.send(users)
-})
+    function getAge(dateString: string | number | Date) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
 
-let today = new Date().toLocaleDateString()
-let dateArray = today.split("/")
-console.log(today)
-console.log(dateArray)
+    if (getAge(req.body.birthDate) < 18)  {
+        res.status(400).send("Para se cadastrar, é necessário que o usuário tenha 18 anos ou mais.")
+    } else {
+        users.push(newUser)
+        res.send(users)
+    }
+})
 
 app.listen(3003, () => {
-	console.log("Server is running in http://localhost:3003")
+    console.log("Server is running in http://localhost:3003")
 })
