@@ -5,6 +5,7 @@ import { generateId } from "./services/generateId";
 import { createUser } from "./services/createUser";
 import { signUpUser } from "./endpoints/signUpUser";
 import { loginWithUser } from "./endpoints/loginWithUser";
+import { getUserProfile } from "./endpoints/getUserProfile";
 
 const app = express();
 
