@@ -1,10 +1,11 @@
+import { Router } from "./routes/Router";
 
 
 const App = () => {
   return (
-    <div>
-      <h1>ESTAMOS AQUI</h1>
-    </div>
+    <>
+      <Router/>
+    </>
   );
 }
 
