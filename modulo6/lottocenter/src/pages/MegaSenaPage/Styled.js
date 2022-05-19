@@ -14,7 +14,7 @@ export const Header = styled.div`
 export const HeaderContainer = styled.div`
     display: flex;
     flex-direction: column;
-    height: 50vh;
+    height: 42.5vh;
     justify-content: space-evenly;
     align-items: center;
 
@@ -48,5 +48,28 @@ export const RoundedBorder = styled.div`
 
 export const Footer = styled.div`
     background-color: #EFEFEF;
-    height: 50vh;
+    height: 45vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    p{
+        text-align: center;
+    }
+`
+
+export const Circle = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: white;
+    height: 200%;
+    width: 10%;
+    border-radius: 50%;    
+    margin-right: 4%;
+`
+
+export const Container = styled.div`
+    display:flex;
+    justify-content: center;
 `
