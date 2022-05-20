@@ -19,6 +19,8 @@ export const HeaderContainer = styled.div`
     align-items: center;
 
     select{
+        margin-top: 20%;
+        margin-bottom: 10%;
         border: 1px solid #EFEFEF;
         padding: 2%;
         border-radius: 5%;

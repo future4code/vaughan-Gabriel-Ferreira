@@ -10,6 +10,11 @@ export const TimemaniaPage = () => {
     const [lotto, setLotto] = useState([]);
     const [contest, setContest] = useState([]);
     const [result, setResult] = useState([]);
+    const [day, setDay] = useState([])
+    const [month, setMonth] = useState([])
+    const [year, setYear] = useState([])
+
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -25,10 +30,8 @@ export const TimemaniaPage = () => {
         )
         .then((response) => {
             setLotto(response)
-            console.log("loterias", response)
         })
         .catch((err) => {
-            console.log(err)
         })
     }
 
@@ -38,11 +41,8 @@ export const TimemaniaPage = () => {
         )
         .then((response) => {
             setContest(response.data[4].concursoId)
-            console.log("concurso", response)
-            console.log("ConcursoId", response.data[4].concursoId)
         })
         .catch((err) => {
-            console.log(err)
         })
     }
 
@@ -52,11 +52,11 @@ export const TimemaniaPage = () => {
         )
         .then((response) => {
             setResult(response.data.numeros)
-            console.log("RESULTADO", response)
-            console.log("estado resultado:", result)
+            setYear(response.data.data.slice(0, 4))
+            setMonth(response.data.data.slice(5, 7))
+            setDay(response.data.data.slice(8, 10))
         })
         .catch((err) => {
-            console.log(err)
         })
     }
 
@@ -81,6 +81,8 @@ export const TimemaniaPage = () => {
                 <img src={timemania1}/>
                 <h2>TIMEMANIA</h2>
                 <p>Concurso Nº {contest}</p>
+                <p>{day}/{month}/{year}</p>
+
                 </HeaderContainer>
            </Header>
            <RoundedBorder>
