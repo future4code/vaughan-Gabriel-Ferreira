@@ -1,19 +1,22 @@
-import { logDOM } from "@testing-library/react"
-import { Circle, CircleContainer, Container, Footer, Header, HeaderContainer, Root } from "./Styled"
+import { Circle, Container, Footer, Header, HeaderContainer, Root } from "./Styled"
 import { RoundedBorder } from "./Styled"
 import megaLogo1 from "../../assets/megaLogo1.png"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { goToDiaDeSorte } from "../../routes/Coordinator"
+import { useNavigate, Link } from "react-router-dom"
 
 export const MegaSenaPage = () => {
     const [lotto, setLotto] = useState([]);
     const [contest, setContest] = useState([]);
     const [result, setResult] = useState([]);
+    const [selectBox, setSelectBox] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         getLottoInfo()
         getContestInfo()
-        getMegaSenaInfo()
+        getResultInfo()
     }, [])
 
     const getLottoInfo = () => {
@@ -44,7 +47,7 @@ export const MegaSenaPage = () => {
         })
     }
 
-    const getMegaSenaInfo = () => {
+    const getResultInfo = () => {
         axios.get(
             "https://brainn-api-loterias.herokuapp.com/api/v1/concursos/2359"
         )
@@ -58,19 +61,22 @@ export const MegaSenaPage = () => {
         })
     }
 
+    const handleChange = (value) => {
+        navigate(`${value}`)
+    }
 
     return(
         <Root>
             <Header>
 
                 <HeaderContainer>
-                <select>
-                    <option>MEGA-SENA</option>
-                    <option>DIA DE SORTE</option>
-                    <option>LOTOFÁCIL</option>
-                    <option>LOTOMANIA</option>
-                    <option>QUINA</option>
-                    <option>TIMEMANIA</option>
+                <select onChange={event => handleChange(event.target.value)} >
+                    <option value={"/"}>MEGA-SENA</option>
+                    <option value={"/diadesorte"}>DIA DE SORTE</option>
+                    <option value={"/lotofacil"}>LOTOFÁCIL</option>
+                    <option value={"/lotomania"}>LOTOMANIA</option>
+                    <option value={"/quina"}>QUINA</option>
+                    <option value={"/timemania"}>TIMEMANIA</option>
                 </select>
                 <img src={megaLogo1}/>
                 <h2>MEGA-SENA</h2>
