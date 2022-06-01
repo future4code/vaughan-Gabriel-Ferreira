@@ -1,12 +1,14 @@
 import { Header } from "./components/Header/Header";
+import { SubHeader } from "./components/SubHeader/SubHeader";
 
 
 const App = () => {
   return (
-    <div>
+    <>
       <Header/>
+      <SubHeader/>
       VARIOS FILMES AQ
-    </div>
+    </>
   );
 }
 
