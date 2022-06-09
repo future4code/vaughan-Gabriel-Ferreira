@@ -6,28 +6,14 @@ import { BodyContainer, MovieCard, MovieTitleContainer } from "./Style"
 
 
 
-export const Body = () => {
+export const Body = (props) => {
 
     const [movies, setMovies] = useState([])
-    const [images, setImages] = useState([])
 
     useEffect (() =>{
         console.log("montou")
         getMovies()
-        getImages()
     }, [])
-
-    const getImages = () => {
-        axios
-        .get(`https://api.themoviedb.org/3/movie/338953/images?api_key=${key}&language=en-US`)
-        .then((response) => {
-            console.log("AS IMAGENS: ", response)
-            // setImages(response.data.results)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }
     
     const getMovies = () => {
         axios
@@ -43,7 +29,12 @@ export const Body = () => {
         })
     }
 
-    const mappedMovies = movies.map((movie) => {
+    const mappedMovies = movies.filter((movie) => {
+        return(
+            movie.title.toLowerCase().includes(props.searchText.toLowerCase())
+        )
+    })
+    .map((movie) => {
         return(
             <MovieCard>
             <img src="https://cdn.pixabay.com/photo/2019/04/24/21/55/cinema-4153289__480.jpg"/>
