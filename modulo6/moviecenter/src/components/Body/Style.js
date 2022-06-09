@@ -13,6 +13,7 @@ export const BodyContainer = styled.div`
 export const MovieCard = styled.div`
     margin-top: 20px;
     margin-left: 15%;
+    margin-right: 15%;
     display: flex;
     flex-direction: column;
     div{
