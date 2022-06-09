@@ -1,8 +1,3 @@
-export const goToLoginPage = (navigate) => {
+export const goToHomepage = (navigate) => {
     navigate("/")
 }
-
-export const goToRegisterPage = (navigate) => {
-    navigate("/cadastro")
-}
-
