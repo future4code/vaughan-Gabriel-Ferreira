@@ -19,10 +19,7 @@ export const Body = (props) => {
         axios
         .get(`https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=1`)
         .then((response) => {
-            console.log("FUNCIONOU!!!!!!!!", response)
             setMovies(response.data.results)
-            console.log("OLHA AQUI O DATA", response.data)
-            console.log("OLHA AQUI OS FILMES:", movies)
         })
         .catch((err) => {
             console.log(err)
