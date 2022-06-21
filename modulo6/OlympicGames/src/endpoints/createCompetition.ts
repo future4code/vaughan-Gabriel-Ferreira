@@ -1,7 +1,7 @@
 import {Request, Response} from "express"
 import connection from "../connection"
 
-export const createUser = async (
+export const createCompetition = async (
     req: Request,
     res: Response
 ): Promise<void> => {
